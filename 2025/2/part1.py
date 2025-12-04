@@ -1,0 +1,23 @@
+def main():
+    sum = 0
+    with open("input.txt", "r") as file:
+        lines = file.readlines()
+    id_ranges = lines[0].strip().split(",")
+    for id_range in id_ranges:
+        start, end = map(int, id_range.split("-"))
+        for i in range(start, end + 1):
+            if check_invalid(i):
+                sum += i
+    print(f"Sum of invalid IDs: {sum}")
+
+
+def check_invalid(id_number):
+    n = len(str(id_number))
+    if n % 2 == 1:
+        return False
+    mid = n // 2
+    return str(id_number)[:mid] == str(id_number)[mid:]
+
+
+if __name__ == "__main__":
+    main()
