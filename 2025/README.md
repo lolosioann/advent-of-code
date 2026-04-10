@@ -25,3 +25,4 @@ to have something to compare every subsequent year against.
 - **Day 4**: Padding the grid to avoid bounds checks
 - **Day 5**: Interval Merge Problem
 - **Day 7**: Nice recursive problem + importance of memoization
+- **Day 8**: Classic Kruskal's algo
