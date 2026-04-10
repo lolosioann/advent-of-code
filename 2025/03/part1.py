@@ -11,7 +11,7 @@ def main():
         max_1, idx = argmax(digits[: n - 1])
         max_2, _ = argmax(digits[idx + 1 :])
 
-        total_sum += int(str(max_1) + str(max_2))
+        total_sum += max_1 * 10 + max_2
 
     print(total_sum)
 

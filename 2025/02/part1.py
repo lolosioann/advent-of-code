@@ -1,5 +1,5 @@
 def main():
-    sum = 0
+    total_sum = 0
     with open("input.txt", "r") as file:
         lines = file.readlines()
     id_ranges = lines[0].strip().split(",")
@@ -7,8 +7,8 @@ def main():
         start, end = map(int, id_range.split("-"))
         for i in range(start, end + 1):
             if check_invalid(i):
-                sum += i
-    print(f"Sum of invalid IDs: {sum}")
+                total_sum += i
+    print(f"Sum of invalid IDs: {total_sum}")
 
 
 def check_invalid(id_number):

@@ -26,11 +26,7 @@ def parse_input(filename):
 
 
 def filter_valid_ingredients(ingredients, ranges):
-    valid_ingredients = []
-    for ingredient in ingredients:
-        if any(start <= ingredient <= end for start, end in ranges):
-            valid_ingredients.append(ingredient)
-    return valid_ingredients
+    return [i for i in ingredients if any(lo <= i <= hi for lo, hi in ranges)]
 
 
 if __name__ == "__main__":

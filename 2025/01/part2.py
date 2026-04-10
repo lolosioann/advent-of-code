@@ -6,14 +6,10 @@ def main():
         lines = f.readlines()
 
     for line in lines:
-        starting_pos = pos
         direction, amount = get_pos_amount(line)
         pos, times_past_zero = move_pos(pos, direction, amount)
         times_past_zero_total += times_past_zero
-        pos = wrap_position(pos)
-        print(
-            f"Times past zero from {starting_pos} to {pos} using {direction + str(amount)}: {times_past_zero}"
-        )
+        pos %= 100  # wrap position around 100
     print(f"Times past zero: {times_past_zero_total}")
 
 
@@ -40,11 +36,6 @@ def move_pos(pos, direction, amount):
     if pos == 0:
         times_past_zero += 1
     return pos, times_past_zero
-
-
-def wrap_position(pos):
-    pos = pos % 100
-    return pos
 
 
 if __name__ == "__main__":

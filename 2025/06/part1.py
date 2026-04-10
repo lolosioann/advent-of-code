@@ -17,13 +17,15 @@ def main():
         # extract column `col`
         column_values = [row[col] for row in data]
 
-        if op == Operation.ADD.value:
+        if Operation(op) == Operation.ADD:
             res = sum(column_values)
 
-        elif op == Operation.MULTIPLY.value:
+        elif Operation(op) == Operation.MULTIPLY:
             res = 1
             for num in column_values:
                 res *= num
+        else:
+            raise Exception("UnsupportedOperation")
 
         total += res
     print(total)

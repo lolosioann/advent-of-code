@@ -8,7 +8,7 @@ def main():
     for line in lines:
         direction, amount = get_pos_amount(line)
         pos = move_pos(pos, direction, amount)
-        pos = wrap_position(pos)
+        pos %= 100  # wrap position around 100
         if pos == 0:
             times_at_zero += 1
 
@@ -30,11 +30,6 @@ def move_pos(pos, direction, amount):
         case _:
             raise ValueError(f"Unknown direction: {direction}")
 
-    return pos
-
-
-def wrap_position(pos):
-    pos = pos % 100
     return pos
 
 
